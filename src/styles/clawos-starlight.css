@@ -41,18 +41,18 @@
 
 html,
 body {
-  background: linear-gradient(
-    180deg,
-    #07090f 0%,
-    var(--bg) 18%,
-    var(--bg) 100%
-  );
   color: var(--text);
   font-family: var(--cl-font-body);
 }
 
 body {
   text-rendering: optimizeLegibility;
+  background: linear-gradient(
+    180deg,
+    #07090f 0%,
+    var(--bg) 18%,
+    var(--bg) 100%
+  );
 }
 
 .site-title,
@@ -94,13 +94,29 @@ header {
   background: color-mix(in srgb, var(--bg) 90%, black);
 }
 
-/* Left sidebar only */
+/* Match the left sidebar surface to the right sidebar/content rail. */
+.sidebar-pane {
+  background: linear-gradient(
+    180deg,
+    #07090f 0%,
+    var(--bg) 18%,
+    var(--bg) 100%
+  );
+  border-inline-end: 1px solid color-mix(in srgb, var(--border) 88%, black);
+}
+
 .sidebar-content {
-  background: color-mix(in srgb, var(--bg) 90%, black);
+  background: transparent;
 }
 
 /* Right sidebar only */
 .right-sidebar-panel {
+  background: linear-gradient(
+    180deg,
+    #07090f 0%,
+    var(--bg) 18%,
+    var(--bg) 100%
+  );
 }
 
 .site-title {
