@@ -1,0 +1,24 @@
+:root {
+  --bg: #0a0f1e;
+  --surface: #0f1523;
+  --surface-2: #162035;
+  --border: #1e2f4a;
+  --border-subtle: #1a2844;
+
+  --text: #dde8f8;
+  --text-muted: #6b8299;
+  --text-dim: #3d5266;
+
+  --accent: #00d4a1;
+  --accent-dim: #d5f5ed;
+  --accent-border: #00d4a1;
+
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  --content-max: 64rem;
+  --content-reading: 48rem;
+  --radius-card: 1rem;
+  --radius-control: 0.75rem;
+}
