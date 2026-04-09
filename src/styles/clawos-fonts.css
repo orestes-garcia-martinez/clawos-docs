@@ -1,0 +1,14 @@
+@import '@fontsource/dm-sans/400.css';
+@import '@fontsource/dm-sans/500.css';
+@import '@fontsource/dm-sans/700.css';
+@import '@fontsource/syne/500.css';
+@import '@fontsource/syne/700.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/600.css';
+
+:root {
+  --cl-font-display: 'Syne', system-ui, sans-serif;
+  --cl-font-body: 'DM Sans', system-ui, sans-serif;
+  --cl-font-mono:
+    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}

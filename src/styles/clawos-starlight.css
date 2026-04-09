@@ -1,0 +1,248 @@
+:root {
+  color-scheme: dark;
+
+  --sl-font-system: var(--cl-font-body);
+  --sl-font-system-mono: var(--cl-font-mono);
+
+  --sl-text-5xl: 3rem;
+  --sl-text-4xl: 2.25rem;
+  --sl-text-h1: 2rem;
+  --sl-text-h2: 1.125rem;
+  --sl-content-width: var(--content-max);
+  --sl-sidebar-width: 18rem;
+
+  --sl-color-accent-low: color-mix(in srgb, var(--accent) 14%, var(--bg));
+  --sl-color-accent: var(--accent);
+  --sl-color-accent-high: color-mix(in srgb, var(--accent) 82%, white);
+
+  --sl-color-white: var(--text);
+  --sl-color-gray-1: color-mix(in srgb, var(--text) 92%, black);
+  --sl-color-gray-2: color-mix(in srgb, var(--text) 76%, black);
+  --sl-color-gray-3: var(--text-muted);
+  --sl-color-gray-4: var(--text-dim);
+  --sl-color-gray-5: var(--border);
+  --sl-color-gray-6: var(--surface-2);
+  --sl-color-black: var(--bg);
+}
+
+:root[data-theme='light'] {
+  color-scheme: dark;
+}
+
+:root,
+:root[data-theme='light'],
+:root[data-theme='dark'] {
+  --page-bg: var(--bg);
+  --page-bg-secondary: var(--surface);
+  --sl-nav-bg: color-mix(in srgb, var(--bg) 92%, black);
+  --sl-panel-bg: color-mix(in srgb, var(--surface) 92%, black);
+  --sl-panel-border: color-mix(in srgb, var(--border) 88%, black);
+}
+
+html,
+body {
+  background: linear-gradient(
+    180deg,
+    #07090f 0%,
+    var(--bg) 18%,
+    var(--bg) 100%
+  );
+  color: var(--text);
+  font-family: var(--cl-font-body);
+}
+
+body {
+  text-rendering: optimizeLegibility;
+}
+
+.site-title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.hero .title {
+  font-family: var(--cl-font-display);
+  letter-spacing: -0.02em;
+}
+
+code,
+pre,
+kbd,
+samp,
+.sl-markdown-content table thead,
+.pagination-links a span:last-child {
+  font-family: var(--cl-font-mono);
+}
+
+header,
+.sidebar-pane,
+.right-sidebar-panel,
+.card,
+.site-title a,
+.pagination-links a,
+.sl-link-card,
+.expressive-code,
+.starlight-aside,
+main .sl-markdown-content table {
+  backdrop-filter: blur(10px);
+}
+
+header {
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 75%, transparent);
+  background: color-mix(in srgb, var(--bg) 90%, black);
+}
+
+/* Left sidebar only */
+.sidebar-content {
+  background: color-mix(in srgb, var(--bg) 90%, black);
+}
+
+/* Right sidebar only */
+.right-sidebar-panel {
+}
+
+.site-title {
+  font-family: var(--cl-font-display);
+  font-weight: 700;
+}
+
+.hero {
+  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  background:
+    radial-gradient(
+      circle at top right,
+      color-mix(in srgb, var(--accent) 18%, transparent),
+      transparent 36%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface) 96%, black),
+      color-mix(in srgb, var(--bg) 96%, black)
+    );
+}
+
+.hero .tagline {
+  max-width: 44rem;
+  color: var(--text-muted);
+}
+
+.hero .actions a,
+.pagination-links a,
+.sl-link-button,
+.sl-link-card {
+  border-radius: var(--radius-control);
+}
+
+.hero .actions a:first-child,
+.sl-link-button.primary {
+  background: var(--accent);
+  color: var(--bg);
+  border: 1px solid transparent;
+}
+
+.hero .actions a.secondary,
+.sl-link-button.secondary,
+.pagination-links a,
+.sl-link-card {
+  border: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
+  background: color-mix(in srgb, var(--surface) 88%, black);
+}
+
+.sl-markdown-content :is(p, li) {
+  color: var(--text);
+}
+
+.sl-markdown-content :is(strong, b) {
+  color: var(--text);
+}
+
+.sl-markdown-content :is(h1, h2, h3) {
+  color: var(--text);
+}
+
+.sl-markdown-content a {
+  color: var(--accent);
+}
+
+.sl-markdown-content blockquote {
+  border-inline-start-color: var(--accent);
+}
+
+.starlight-aside {
+  background: color-mix(in srgb, var(--surface) 92%, black);
+  border: 1px solid color-mix(in srgb, var(--border) 82%, transparent);
+}
+
+.sidebar-content a[aria-current='page'] {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.pagination-links a:hover,
+.sl-link-card:hover,
+.sidebar-content a:hover {
+  border-color: color-mix(in srgb, var(--accent) 36%, var(--border));
+}
+
+.social-icons a,
+.site-title a,
+.sidebar-content a,
+.pagination-links a {
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.social-icons a:hover,
+.site-title a:hover,
+.pagination-links a:hover {
+  transform: translateY(-1px);
+}
+
+.select,
+select,
+button[aria-label='Select theme'] {
+  border-radius: var(--radius-control);
+}
+
+/* Phase 0 preference: keep docs dark-only and hide the theme switcher. */
+button[aria-label='Select theme'],
+.starlight-theme-select {
+  display: none !important;
+}
+select[aria-label='Select theme'] {
+  display: none !important;
+}
+
+/* ── Custom scrollbars ── */
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(30, 47, 74, 0.6) transparent;
+}
+
+/* WebKit / Blink (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(30, 47, 74, 0.6);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(30, 47, 74, 0.9);
+}
