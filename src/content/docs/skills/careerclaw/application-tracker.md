@@ -1,11 +1,15 @@
 ---
 title: Application Tracker
-description: Tracking saved, applied, and interviewing jobs.
+description: How CareerClaw tracks saved, applied, and interviewing roles.
 sidebar:
   order: 3
 ---
 
-## Current statuses
+## Why the tracker matters
+
+The tracker keeps job search progress structured across sessions and channels.
+
+## Common statuses
 
 - saved
 - applied
@@ -13,6 +17,10 @@ sidebar:
 - offer
 - rejected
 
-## Why it matters
+## Typical updates
 
-The tracker helps preserve continuity between briefing, drafting, and follow-up status updates.
+- `Save this job to my tracker`
+- `I applied to this role`
+- `I'm interviewing next Monday morning`
+
+The value is not just storage. The tracker lets later prompts build on real search state instead of starting from zero.

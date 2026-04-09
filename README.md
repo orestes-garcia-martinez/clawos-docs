@@ -6,14 +6,12 @@ This is the standalone documentation site scaffold for `docs.clawoshq.com`.
 
 This repo intentionally uses Astro Starlight instead of Nextra to keep the docs site stable, low-maintenance, and first-party controlled while avoiding React 19 / `next-themes` noise.
 
-## Phase 0 goals
+## Project goals
 
-- Standalone docs repo outside the ClawOS monorepo
-- Astro Starlight scaffold
-- ClawOS-aligned dark-first visual system
-- `clawos-tokens.css` and `clawos-fonts.css` as the simple design contract
-- Initial docs information architecture
-- Vercel-ready static deployment
+- Keep the docs repo outside the main ClawOS monorepo.
+- Reuse the ClawOS visual language through `clawos-tokens.css` and `clawos-fonts.css`.
+- Stay low-maintenance: content-first, no custom theme engine, dark-only for v1.
+- Document the real ClawOS platform model: platform-owned frame, skill-owned mode.
 
 ## Install
 
@@ -85,3 +83,8 @@ Primary workflows:
 - Platform docs live here.
 - CareerClaw docs also live here for Phase 0.
 - Future skill docs can remain here or later be federated from skill repos only if that becomes necessary.
+
+## Phase status
+
+- Phase 0: scaffold, tokens, shell, placeholder docs
+- Phase 1: practical content baseline, polished navigation, platform/skill separation, example workflow pages

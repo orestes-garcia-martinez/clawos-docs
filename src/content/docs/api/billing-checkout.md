@@ -1,10 +1,14 @@
 ---
 title: Billing Checkout
-description: Platform checkout initiation flow.
+description: The route that starts a hosted upgrade flow.
 sidebar:
-  order: 2
+  order: 4
 ---
 
-## Role
+## Purpose
 
-Starts the upgrade flow from the ClawOS API, not directly from the client to the billing provider.
+The checkout route creates a hosted billing session through the platform backend.
+
+## Rule
+
+The UI should request checkout from ClawOS, not talk to the billing provider directly as the source of entitlement truth.

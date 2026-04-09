@@ -34,6 +34,7 @@ export default defineConfig({
           items: [
             { label: 'Docs Home', link: '/' },
             { label: 'Getting Started', slug: 'getting-started/overview' },
+            { label: 'FAQ', slug: 'reference/faq' },
           ],
         },
         {
@@ -58,6 +59,7 @@ export default defineConfig({
               label: 'Architecture Overview',
               slug: 'platform/architecture-overview',
             },
+            { label: 'Channels', slug: 'platform/channels' },
             {
               label: 'Billing and Entitlements',
               slug: 'platform/billing-and-entitlements',
@@ -66,30 +68,59 @@ export default defineConfig({
               label: 'Resume Data Policy',
               slug: 'platform/resume-data-policy',
             },
+            {
+              label: 'Security and Trust',
+              slug: 'platform/security-and-trust',
+            },
           ],
         },
         {
           label: 'Skills',
           items: [
-            { label: 'CareerClaw', slug: 'skills/careerclaw/overview' },
-            { label: 'ScrapeClaw', slug: 'skills/scrapeclaw/overview' },
-            { label: 'InvestClaw', slug: 'skills/investclaw/overview' },
+            {
+              label: 'CareerClaw',
+              slug: 'skills/careerclaw/overview',
+              badge: 'Live',
+            },
+            {
+              label: 'ScrapeClaw',
+              slug: 'skills/scrapeclaw/overview',
+              badge: 'Planned',
+            },
+            {
+              label: 'InvestClaw',
+              slug: 'skills/investclaw/overview',
+              badge: 'Planned',
+            },
           ],
         },
         {
           label: 'API',
+          collapsed: true,
           items: [
             { label: 'API Overview', slug: 'api/overview' },
+            { label: 'Auth Model', slug: 'api/auth-model' },
+            { label: 'Chat and SSE', slug: 'api/chat-and-sse' },
             { label: 'Billing Checkout', slug: 'api/billing-checkout' },
             { label: 'Billing Portal', slug: 'api/billing-portal' },
             { label: 'Billing Webhooks', slug: 'api/billing-webhooks' },
+            { label: 'Error Model', slug: 'api/error-model' },
           ],
         },
         {
           label: 'Examples',
+          collapsed: true,
           items: [
             { label: 'Web Channel', slug: 'examples/web-channel' },
             { label: 'Telegram Channel', slug: 'examples/telegram-channel' },
+            {
+              label: 'Fresh Job Briefing',
+              slug: 'examples/fresh-job-briefing',
+            },
+            {
+              label: 'Tracker Status Flow',
+              slug: 'examples/tracker-status-flow',
+            },
           ],
         },
         {

@@ -1,17 +1,27 @@
 ---
 title: Telegram Quickstart
-description: First-run Telegram setup and account linking path.
+description: Start using ClawOS from the Telegram channel.
 sidebar:
   order: 3
 ---
 
 ## Telegram flow
 
-1. Message the ClawOS bot.
-2. Confirm your identity if you started on the web.
-3. Continue using CareerClaw from the same canonical user account.
+1. Open the ClawOS Telegram bot.
+2. Send a simple job-search request.
+3. Let the platform create or resolve your channel identity.
+4. Continue from the same skill-focused workflow.
 
-## Why this matters
+## Good first messages
 
-Telegram is a channel, not a separate product identity. The platform maps channels back to the
-same user model.
+- `Run a fresh job briefing`
+- `How many applications am I tracking?`
+- `Save this job to my tracker`
+- `Update this role to interviewing`
+
+## Important note
+
+Telegram is a channel, not a separate product. The same platform model still applies:
+
+- ClawOS owns the identity and session rules.
+- CareerClaw owns the job-search workflow.

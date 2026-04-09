@@ -8,10 +8,24 @@ sidebar:
 
 ## What CareerClaw does
 
-CareerClaw helps users run job briefings, score matches, track applications, and generate
-drafting support inside the ClawOS platform.
+CareerClaw helps users:
 
-## Key boundary
+- run fresh job briefings
+- inspect ranked matches
+- save roles to a tracker
+- update application status
+- generate drafting support
 
-CareerClaw owns the workflow mode. ClawOS still owns identity, billing, channels, and the trust
-frame.
+## What CareerClaw does not own
+
+CareerClaw is not the platform shell. ClawOS still owns:
+
+- identity
+- billing
+- channels
+- session continuity
+- trust boundaries
+
+## Why this distinction matters
+
+A user should feel like they are inside ClawOS, operating in CareerClaw mode — not like they left the platform and opened a separate app.

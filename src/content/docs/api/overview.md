@@ -1,15 +1,21 @@
 ---
 title: API Overview
-description: Platform-facing API surface for docs phase 0.
+description: High-level guide to the platform-facing API surface.
 sidebar:
   order: 1
 ---
 
-## Initial reference sections
+## Scope
 
-- chat and streaming
-- billing checkout
-- billing portal
-- billing webhooks
+These docs describe the platform-level API behavior that matters to the ClawOS product and docs site.
 
-Phase 0 keeps these pages conceptual and stable before deeper endpoint-by-endpoint expansion.
+## Current priorities
+
+- authenticated chat flow
+- billing checkout and portal routes
+- webhook verification behavior
+- SSE-based streaming for the web channel
+
+## Design rule
+
+The API is part of the trusted platform layer. It should not expose billing or entitlement decisions as client-owned logic.
