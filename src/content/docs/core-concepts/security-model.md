@@ -1,18 +1,22 @@
 ---
 title: Security Model
-description: First-party engines, owned distribution, and clear trust boundaries.
+description: Why ClawOS is built as a first-party platform instead of a marketplace.
 sidebar:
   order: 3
 ---
 
 ## Security-first by design
 
-ClawOS does not rely on a marketplace-style third-party runtime install model. The platform owns
-its skill surface and distribution path.
+ClawOS is intentionally designed to avoid the runtime marketplace model that created supply-chain and trust problems elsewhere.
 
-## Practical outcomes
+## Core rules
 
-- Fewer trust boundaries
-- Clearer operational control
-- Cleaner entitlement model
-- Better alignment with first-party product positioning
+- no third-party skill installation at runtime
+- no automatic dependency installs in production
+- first-party owned engines only
+- validation and authorization at platform boundaries
+- billing and access decisions handled by trusted platform services
+
+## Practical result
+
+Users are not expected to trust an uncontrolled extension marketplace. They trust a platform with clear boundaries and first-party ownership.

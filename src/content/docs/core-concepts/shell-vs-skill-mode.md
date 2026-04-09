@@ -1,17 +1,36 @@
 ---
 title: Shell vs Skill Mode
-description: The core ClawOS product model.
+description: The core interaction model behind ClawOS.
 sidebar:
   order: 1
 ---
 
-## The rule
+## The simple rule
 
-**ClawOS owns the frame. The skill owns the mode.**
+**ClawOS owns the frame. The active skill owns the mode.**
 
-That means the platform owns navigation, account, billing, trust, and channels. The skill owns
-workflow-specific content such as prompts, outputs, quick actions, and domain UI.
+## Platform-owned responsibilities
 
-## Why it matters
+The shell is responsible for:
 
-This model keeps the product from collapsing into one noisy universal chat timeline.
+- identity
+- channels
+- billing
+- session continuity
+- security boundaries
+- navigation between platform and skill surfaces
+
+## Skill-owned responsibilities
+
+A skill is responsible for the workflow that the user is actually trying to complete.
+
+For CareerClaw, that means:
+
+- job briefings
+- match analysis
+- application tracking
+- draft generation
+
+## Why this matters
+
+This model prevents the product from collapsing into one noisy assistant thread. It keeps work focused while still allowing the platform to grow into multiple skills over time.

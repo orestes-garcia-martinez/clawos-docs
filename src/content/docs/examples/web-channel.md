@@ -1,15 +1,29 @@
 ---
-title: Web Channel Examples
-description: Placeholder examples for interactive web workflows.
+title: Web Channel
+description: What the Web surface is best suited for.
 sidebar:
   order: 1
 ---
 
-## Planned examples
+## Best use cases
 
-- run a fresh briefing
-- analyze a role
-- save a job to the tracker
-- update application status
+The web channel is best when the user needs:
 
-Phase 0 keeps this page static. Interactive transcript components come later.
+- richer navigation
+- profile editing
+- settings visibility
+- structured workspace context
+- a more complete view of the platform shell
+
+## Example requests
+
+```text
+Run a fresh job briefing
+Show me the first 10 matches
+Analyze Intermediate Full Stack Engineer at Runn
+Write a cover letter and save it to my tracker
+```
+
+## What to notice
+
+The content of the request is CareerClaw-specific, but the shell around it is still ClawOS.

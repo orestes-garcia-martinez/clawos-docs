@@ -1,15 +1,20 @@
 ---
 title: Resume Data Policy
-description: Resume handling and storage boundaries for CareerClaw inside ClawOS.
+description: How ClawOS handles resume content.
 sidebar:
-  order: 3
+  order: 4
 ---
 
 ## Storage rule
 
-Raw PDFs should not become the durable system of record. Extracted text is the safer and simpler
-product boundary.
+ClawOS stores **extracted text**, not the raw PDF, as the normal product baseline.
 
-## User expectation
+## Why
 
-Users should be able to view and clear their stored resume text from settings.
+This reduces storage surface and lowers privacy risk while still giving CareerClaw the information it needs for matching and drafting.
+
+## User-facing implications
+
+- users can inspect the stored text representation
+- users can clear it
+- support does not depend on keeping raw documents around in normal operation

@@ -1,18 +1,19 @@
 ---
 title: ScrapeClaw Overview
-description: Future acquisition and monitoring skill for ClawOS.
+description: Planned research and acquisition skill for the ClawOS platform.
 sidebar:
   order: 1
-  badge:
-    text: Planned
-    variant: caution
+  badge: Planned
 ---
 
 ## Status
 
 ScrapeClaw is planned, not live.
 
-## Role in the platform
+## Intended role
 
-ScrapeClaw will act as a focused acquisition and monitoring skill rather than collapsing scraping,
-monitoring, and other workflows into unrelated areas of the platform.
+ScrapeClaw is the platform's future acquisition and monitoring skill. It is expected to collect and normalize useful external information without turning the product into a noisy, all-purpose thread.
+
+## Relationship to the platform
+
+ScrapeClaw should publish useful facts into shared context where appropriate, but it should still keep its own focused workspace.

@@ -1,17 +1,21 @@
 ---
 title: Pro Features
-description: Premium CareerClaw features unlocked through ClawOS billing.
+description: What changes when CareerClaw is unlocked in Pro mode.
 sidebar:
   order: 4
 ---
 
-## Pro examples
+## The practical difference
 
-- deeper resume intelligence
+Free should remain useful. Pro unlocks deeper intelligence, not basic usability.
+
+## Typical Pro capabilities
+
+- stronger resume-aware analysis
 - gap analysis
-- enhanced drafting
-- expanded top-match output
+- tailored cover letters
+- improved drafting quality
 
-## Ownership rule
+## Important platform note
 
-The feature logic may live in the skill, but the access decision is platform-owned.
+These features are unlocked by platform entitlement state. They are not granted by the UI alone.

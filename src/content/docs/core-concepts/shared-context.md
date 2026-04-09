@@ -1,16 +1,24 @@
 ---
 title: Shared Context
-description: Focused workspaces first, shared facts second.
+description: How ClawOS grows into multiple skills without merging everything into one thread.
 sidebar:
   order: 4
 ---
 
-## Current principle
+## The problem
 
-Each skill should keep its own focused workspace. Cross-skill context should only carry forward
-selected, trustworthy facts.
+A multi-skill platform cannot scale by dumping every interaction into one giant conversation.
 
-## Why not a universal thread?
+## The ClawOS direction
 
-A single thread across every skill creates noise, weakens skill boundaries, and makes intent
-harder to reason about.
+ClawOS keeps skill-local workspaces and promotes only selected, useful facts into shared platform context.
+
+## Mental model
+
+- work stays focused inside a skill
+- only relevant facts move up into shared context
+- future skills consume selected context, not raw history dumps
+
+## Why this matters
+
+This keeps the UI understandable and the trust model clear as the platform expands beyond CareerClaw.

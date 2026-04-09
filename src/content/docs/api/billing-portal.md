@@ -1,11 +1,10 @@
 ---
 title: Billing Portal
-description: Customer portal entry flow for plan management.
+description: The route that sends a user into billing management.
 sidebar:
-  order: 3
+  order: 5
 ---
 
-## Role
+## Purpose
 
-Gives the user a managed way to update their subscription state through the provider-backed portal
-while preserving the ClawOS account boundary.
+The billing portal route lets an authenticated ClawOS user manage the existing subscription relationship without exposing billing control logic directly in the client.
