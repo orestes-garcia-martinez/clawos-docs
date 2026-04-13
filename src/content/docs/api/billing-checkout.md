@@ -1,14 +1,23 @@
 ---
 title: Billing Checkout
-description: The route that starts a hosted upgrade flow.
+description: The route that starts the hosted Pro upgrade flow.
 sidebar:
   order: 4
 ---
 
 ## Purpose
 
-The checkout route creates a hosted billing session through the platform backend.
+`POST /billing/checkout` creates a hosted Polar checkout session through the ClawOS backend.
 
-## Rule
+## Who calls it
 
-The UI should request checkout from ClawOS, not talk to the billing provider directly as the source of entitlement truth.
+Today, both Web and Telegram can trigger the upgrade path through ClawOS rather than talking directly to Polar as if the client were the source of entitlement truth.
+
+## Why this route matters
+
+The important rule is:
+
+- the client can start checkout
+- the platform is still responsible for deciding when access actually changes
+
+Checkout creation is not the same thing as entitlement activation.

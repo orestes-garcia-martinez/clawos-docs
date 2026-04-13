@@ -1,14 +1,34 @@
 ---
 title: Auth Model
-description: How authenticated requests enter the platform.
+description: How authenticated requests enter the ClawOS platform.
 sidebar:
   order: 2
 ---
 
-## Authentication boundary
+## Two auth paths exist today
 
-The platform API validates authenticated user requests before executing product logic.
+The current API middleware in `apps/api/src/auth.ts` supports two request types:
 
-## Why it matters
+### 1. Web client auth
 
-This keeps channels, identity, sessions, and entitlements tied to the same platform trust boundary instead of scattering access decisions across the UI.
+The web client sends:
+
+- `Authorization: Bearer <supabase-jwt>`
+
+The API validates the JWT with Supabase, resolves the user, and loads the cached tier.
+
+### 2. Trusted service auth
+
+Internal adapters such as Telegram use:
+
+- `X-Service-Secret`
+- `X-Service-Name`
+- `X-User-Id`
+
+This is not a public client shortcut. It is the internal adapter path for trusted channel services.
+
+## Why this matters
+
+ClawOS does not mix channel transport identity with platform identity.
+
+Different request shapes can enter the system, but they still resolve to the same user and the same platform entitlement state.

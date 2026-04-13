@@ -1,20 +1,38 @@
 ---
 title: Error Model
-description: How platform and skill errors should be understood in the docs.
+description: How to think about errors across the ClawOS platform and CareerClaw workflow.
 sidebar:
   order: 7
 ---
 
-## The two layers
+## The main split
+
+The current implementation naturally divides errors into two layers.
 
 ### Platform errors
 
-Authentication, billing, session, or transport failures belong to the platform.
+These belong to ClawOS itself, for example:
 
-### Skill errors
+- auth failures
+- billing route failures
+- invalid link-token service configuration
+- worker verification failures
+- transport or streaming failures
 
-Workflow-specific execution issues belong to the active skill.
+### Skill/workflow errors
 
-## Why this distinction matters
+These belong to the active workflow running inside the platform, for example:
 
-The docs site should help users understand whether a problem belongs to ClawOS itself or to a skill workflow running inside ClawOS.
+- invalid job target resolution
+- missing profile data for a briefing run
+- worker execution timeout for a skill action
+- failure inside a specific drafting or analysis step
+
+## Why this distinction helps
+
+Users and operators should be able to tell the difference between:
+
+- “the platform could not authorize or route this request”
+- “the active skill could not complete this workflow step”
+
+That distinction makes support, debugging, and future docs structure much clearer.

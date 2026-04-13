@@ -6,26 +6,39 @@ sidebar:
   badge: Live
 ---
 
-## What CareerClaw does
+## What CareerClaw does today
 
-CareerClaw helps users:
+CareerClaw is the first live skill inside ClawOS. In the current platform codebase it supports:
 
-- run fresh job briefings
-- inspect ranked matches
-- save roles to a tracker
-- update application status
-- generate drafting support
+- fresh job briefings
+- ranked match review
+- application tracker updates
+- gap analysis
+- cover letter generation
+- Pro-aware feature gating through platform entitlements
+
+## Where the implementation lives
+
+CareerClaw spans multiple platform layers:
+
+- web workspace views in `apps/web`
+- API orchestration in `apps/api/src/routes/chat.ts`
+- worker execution in `apps/worker`
+- shared prompt/contracts in `packages/shared`
 
 ## What CareerClaw does not own
 
-CareerClaw is not the platform shell. ClawOS still owns:
+CareerClaw is not the platform shell.
+
+ClawOS still owns:
 
 - identity
-- billing
 - channels
-- session continuity
-- trust boundaries
+- billing and entitlements
+- session persistence
+- worker verification
+- security boundaries
 
 ## Why this distinction matters
 
-A user should feel like they are inside ClawOS, operating in CareerClaw mode — not like they left the platform and opened a separate app.
+The product should feel like **ClawOS in CareerClaw mode**, not like a separate CareerClaw app that happens to sit inside the shell.

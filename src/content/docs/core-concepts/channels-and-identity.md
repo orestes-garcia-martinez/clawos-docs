@@ -7,19 +7,35 @@ sidebar:
 
 ## Canonical identity
 
-ClawOS treats the platform user identity as canonical and maps channels into that identity.
+ClawOS treats the **platform user identity** as canonical.
 
-## Current channels
+Channels do not create separate product identities. They map into the same underlying ClawOS user.
 
-- Web
-- Telegram
+## What the current codebase shows
 
-## What channels do
+The current platform supports two auth paths in `apps/api/src/auth.ts`:
 
-Channels handle transport, presentation, and channel-specific authentication behavior.
+- **JWT auth** for the web client
+- **service auth** for trusted internal adapters such as Telegram
 
-They do **not** change the business logic of the skill engine.
+Both paths resolve into the same canonical ClawOS user and the same entitlement state.
 
-## Why linking matters
+## Telegram linking model
 
-When a user links Telegram to a web account, the goal is not to create a second profile. The goal is to let the same user move between channels while preserving the correct platform state.
+The Telegram linking flow is intentionally not OAuth-heavy.
+
+Current implementation:
+
+1. the web app requests a link token from `/link-token`
+2. the API generates a raw token and stores only its HMAC hash server-side
+3. the user sends `/link <token>` to the Telegram bot
+4. the Telegram adapter redeems the token atomically
+5. the Telegram identity is attached to the web user identity
+
+That keeps the model simple, explicit, and single-use.
+
+## Why this matters
+
+The user should not feel like they created a second account when they move between Web and Telegram.
+
+The goal is one platform identity, one billing relationship, and one consistent state model across channels.

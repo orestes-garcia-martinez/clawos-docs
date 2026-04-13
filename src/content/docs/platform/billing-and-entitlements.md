@@ -1,31 +1,64 @@
 ---
 title: Billing and Entitlements
-description: How Pro access is granted and cached inside ClawOS.
+description: How Pro access is granted, cached, and enforced inside ClawOS.
 sidebar:
   order: 3
 ---
 
-## Source of truth
+## Source of truth vs fast path
 
-**Polar** is the billing source of truth.
+The current implementation uses two distinct layers:
 
-## Fast path used by the product
+- **Polar** is the billing source of truth
+- **Supabase** stores the fast-read entitlement cache used by the app and API
 
-**Supabase** stores the entitlement cache used during normal requests.
+This is visible directly in the codebase:
 
-## Important rule
+- `apps/api/src/routes/billing.ts`
+- `apps/api/src/entitlements.ts`
+- `packages/billing/*`
 
-The UI never grants Pro directly. Access changes only after the platform verifies billing state and updates the internal entitlement model.
+## What the UI does
 
-## Lifecycle
+The UI does not grant Pro.
 
-1. UI requests checkout from ClawOS
-2. API creates Polar checkout
-3. Polar sends webhook events
-4. ClawOS verifies the webhook
-5. ClawOS updates entitlement state
-6. UI and worker behavior reflect the updated cache
+It only:
 
-## Why this design is better
+1. asks ClawOS for a checkout session
+2. redirects the user to Polar
+3. refreshes after ClawOS updates its cached entitlement state
 
-Routine product requests stay fast and stable because they do not depend on live billing calls on every interaction.
+That is the correct trust model because the client is never treated as the authority for access.
+
+## Current lifecycle
+
+In the current platform code, the upgrade path is:
+
+1. Web or Telegram requests `/billing/checkout`
+2. the ClawOS API creates a hosted Polar checkout session
+3. Polar sends webhook events back to ClawOS
+4. ClawOS verifies the webhook signature
+5. ClawOS updates `user_skill_entitlements` and refreshes `users.tier`
+6. later product requests read the cached entitlement state from Supabase
+
+## Why the cache exists
+
+Normal product requests do **not** call Polar on the hot path.
+
+That keeps:
+
+- chat execution fast
+- entitlement checks stable
+- the product resilient to transient billing-provider issues
+
+## What the worker trusts
+
+The worker does not trust the UI either.
+
+The API resolves entitlements first, then issues a signed skill assertion for the worker. The worker verifies that assertion before executing CareerClaw in the correct tier/feature mode.
+
+## Current product reality
+
+Today the live paid surface is **ClawOS Pro for CareerClaw**.
+
+The docs should keep that language explicit instead of implying a broad multi-skill paid bundle that does not exist yet in the shipped product.

@@ -7,9 +7,11 @@ sidebar:
 
 ## Why the tracker matters
 
-The tracker keeps job search progress structured across sessions and channels.
+The tracker gives CareerClaw durable workflow state instead of forcing the user to restate job progress every time.
 
-## Common statuses
+## Current status model
+
+The current docs and UI align around these practical states:
 
 - saved
 - applied
@@ -17,10 +19,20 @@ The tracker keeps job search progress structured across sessions and channels.
 - offer
 - rejected
 
-## Typical updates
+## How updates happen
+
+Tracker updates are platform-mediated, not free-form client state.
+
+Typical prompts include:
 
 - `Save this job to my tracker`
 - `I applied to this role`
 - `I'm interviewing next Monday morning`
 
-The value is not just storage. The tracker lets later prompts build on real search state instead of starting from zero.
+The API resolves the intended action, validates the target, then persists the update so later prompts can build on real state.
+
+## Why this is useful
+
+The tracker turns CareerClaw from a one-off search assistant into an ongoing workflow tool.
+
+That is especially important across sessions and across channels.
