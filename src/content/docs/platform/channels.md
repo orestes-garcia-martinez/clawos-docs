@@ -1,26 +1,79 @@
 ---
 title: Channels
-description: The current and planned channel surfaces for ClawOS.
+description: How Web and Telegram map into the same ClawOS platform.
 sidebar:
   order: 2
 ---
 
-## MVP channels
+## Current channels
 
-### Web
+The current platform codebase supports two active channels:
 
-The primary, richest surface for the current product.
+- **Web** — the primary rich client in `apps/web`
+- **Telegram** — the messaging adapter in `apps/telegram`
 
-### Telegram
+The roadmap still leaves room for WhatsApp later, but the live product today is Web + Telegram.
 
-A lightweight messaging surface for the same platform and the same skill workflows.
+## The important rule
 
-## Planned channel
+Channels are adapters.
 
-### WhatsApp
+They change:
 
-Planned after MVP. The platform design leaves room for it, but the current docs should stay honest about what is already live.
+- transport
+- rendering style
+- authentication path
+- upload flow
+- response delivery format
 
-## Platform rule
+They do **not** change:
 
-Channels are adapters. They change transport and presentation, not the meaning of the skill.
+- the canonical user identity
+- the active skill's business logic
+- the entitlement model
+- the worker verification model
+
+## Web channel
+
+The web app uses:
+
+- Supabase JWT auth
+- SSE streaming for `/chat`
+- a dedicated resume extraction route
+- direct billing checkout and portal requests through the ClawOS API
+
+Relevant files:
+
+- `apps/web/src/lib/api.ts`
+- `apps/web/src/hooks/useSSEChat.ts`
+- `apps/api/src/routes/chat.ts`
+- `apps/api/src/routes/resume.ts`
+
+## Telegram channel
+
+The Telegram adapter uses:
+
+- Telegram webhook delivery
+- service-auth headers to call the Agent API
+- channel identity mapping into the canonical ClawOS user
+- `/link <token>` account linking for Telegram-to-web merge
+
+Relevant files:
+
+- `apps/telegram/src/index.ts`
+- `apps/telegram/src/link.ts`
+- `apps/api/src/auth.ts`
+- `apps/api/src/routes/link-token.ts`
+
+## Why this structure is better
+
+ClawOS does not fork business logic per channel.
+
+Web and Telegram both route into the same platform core, which means:
+
+- one user identity
+- one entitlement model
+- one session model
+- one platform trust boundary
+
+That is the right mental model for the docs and for the product.

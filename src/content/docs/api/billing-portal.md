@@ -1,10 +1,16 @@
 ---
 title: Billing Portal
-description: The route that sends a user into billing management.
+description: The route that sends an authenticated user into subscription management.
 sidebar:
   order: 5
 ---
 
 ## Purpose
 
-The billing portal route lets an authenticated ClawOS user manage the existing subscription relationship without exposing billing control logic directly in the client.
+`POST /billing/portal` creates a hosted customer portal session for an already authenticated ClawOS user.
+
+## Why it exists
+
+ClawOS should let users manage billing through the provider's hosted surface without moving billing authority into the client application.
+
+That keeps the product simple while preserving the platform's trust boundary.
